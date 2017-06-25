@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>印象笔记</title>
+		<link rel="stylesheet" href="css/demo.css">
+		<script src="js/vue.min.js"></script>
+    	<script src="js/jquery-3.2.1.min.js"></script>
+    	<script src="js/jquery.cookie.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<!--login-->
+			<div id="login" v-show="showLogin">
+				<div class="en_login">
+					<h2>登录</h2>
+					<div class="login">
+						<input type="text" class="user" placeholder="用户名或电子邮箱" value="" v-model="user" >
+						<p><input type="checkbox" class="maybe" @click="check"><b>30天内记住我</b> </p>
+						<h4 class="errorMes" v-show="showError_01" v-html="error"></h4>
+						<button class="log_btn" @click="clickContinue">继续</button>
+						<p><a href="javascript:;" class="log_forget">忘记密码？</a></p>
+						<a href="javascript:;" class="skip">切换到Evernote International</a>
+					</div>
+					<div class="log_reg">
+						<h5>没有账号？</h5>
+						<a href="javascript:;" @click="to_register">创建账号</a>
+					</div>
+				</div>
+			</div>
+			<!--register-->
+			<div id="register" v-show="showRegister">
+				<div class="en_register">
+					<h2>注册</h2>
+					<div class="register">
+						<input type="text" value="" class="username" v-model="username" placeholder="用户名或电子邮箱">
+            <h4 class="errorMes" v-show="showError_02" v-html="error"></h4>
+						<p><input type="password" value="" class="userpass" v-model="userpass" placeholder="设置密码"></p>
+            <h4 class="errorPas" v-show="showError_03" v-html="error"></h4>	
+						<button class="reg_btn" @click="clickCreate">创建账号</button>
+						<a href="javascript:;" class="skip">切换到Evernote International</a>
+					</div>
+					<div class="log_reg">
+						<h5>已有账号</h5>
+						<a href="javascript:;" @click="to_login">登录</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/index.js"></script>
+	</body>
+
+</html>
